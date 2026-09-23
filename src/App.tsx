@@ -128,7 +128,7 @@ export default function App() {
       return;
     }
     setViewMode(mode);
-    setActiveRole(mode === 'CUSTOMER' ? 'CUSTOMER' : 'AGENT');
+    setActiveRole('AGENT');
     addToast(
       'info',
       `Layout: ${mode === 'AGENT' ? 'Agent Workspace' : 'Side-by-Side Test Mode'}`,

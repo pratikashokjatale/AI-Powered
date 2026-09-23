@@ -13,6 +13,7 @@ interface CustomerChatLayoutProps {
   onSendMessage: (content: string) => Promise<void>;
   isSending: boolean;
   onRefresh?: () => void;
+  onSwitchToAgent?: () => void;
 }
 
 export const CustomerChatLayout: React.FC<CustomerChatLayoutProps> = ({
@@ -21,6 +22,7 @@ export const CustomerChatLayout: React.FC<CustomerChatLayoutProps> = ({
   onSendMessage,
   isSending,
   onRefresh,
+  onSwitchToAgent,
 }) => {
   const [inputText, setInputText] = useState('');
   const [attachedImage, setAttachedImage] = useState<string | null>(null);
@@ -115,6 +117,16 @@ export const CustomerChatLayout: React.FC<CustomerChatLayoutProps> = ({
             >
               <RefreshCw size={13} />
               <span>Refresh Chat</span>
+            </button>
+          )}
+          {onSwitchToAgent && (
+            <button
+              type="button"
+              className="banner-action-btn"
+              onClick={onSwitchToAgent}
+              title="Switch to Agent Workspace"
+            >
+              <span>Back to Agent</span>
             </button>
           )}
         </div>

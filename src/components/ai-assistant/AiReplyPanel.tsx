@@ -32,8 +32,8 @@ export const AiReplyPanel: React.FC<AiReplyPanelProps> = ({
   const [showAdvanced, setShowAdvanced] = useState(false);
   const [customInstruction, setCustomInstruction] = useState('');
 
-  const handleGenerateClick = () => {
-    onGenerate(customInstruction.trim() || undefined);
+  const handleGenerateClick = async () => {
+    await onGenerate(customInstruction.trim() || undefined);
   };
 
   return (

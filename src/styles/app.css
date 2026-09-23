@@ -2460,11 +2460,11 @@
 .image-zoom-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.35rem;
+  gap: 0.6rem;
   color: #fff;
   font-size: 0.75rem;
   font-weight: 600;
@@ -2474,6 +2474,36 @@
 
 .image-thumbnail-wrapper:hover .image-zoom-overlay {
   opacity: 1;
+}
+
+.zoom-action {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-sm);
+  backdrop-filter: blur(4px);
+}
+
+.save-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: rgba(14, 165, 233, 0.85);
+  color: #fff;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.save-action-btn:hover {
+  background: #0284c7;
+  transform: scale(1.05);
 }
 
 .image-card-caption {
@@ -2493,9 +2523,28 @@
 }
 
 .caption-text {
+  flex: 1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.caption-download-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  padding: 2px 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.caption-download-btn:hover {
+  color: #38bdf8;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Lightbox Modal */
@@ -2517,8 +2566,40 @@
   max-width: 90vw;
   max-height: 90vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.lightbox-top-bar {
+  position: absolute;
+  top: -24px;
+  right: -16px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.lightbox-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-full);
+  background-color: #0284c7;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.lightbox-action-btn:hover {
+  background-color: #0369a1;
+  transform: scale(1.05);
 }
 
 .lightbox-img {
@@ -2530,9 +2611,6 @@
 }
 
 .lightbox-close-btn {
-  position: absolute;
-  top: -16px;
-  right: -16px;
   width: 36px;
   height: 36px;
   border-radius: var(--radius-full);
